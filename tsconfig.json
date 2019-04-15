@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "allowJs": false,
+        "lib": [
+            "es2015",
+            "es2017"
+        ],
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es5",
+        "noImplicitReturns": true,
+        "noFallthroughCasesInSwitch": true,
+        "pretty": true,
+        "sourceMap": true,
+        "outDir": "./lib",
+        "skipLibCheck": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "downlevelIteration": true,
+        "declaration": true,
+        "resolveJsonModule": true,
+        "baseUrl": ".",
+        "paths": {
+            "*": [
+                "node_modules/*"
+            ]
+        }
+    },
+    "include": [
+        "src/**/*",
+    ],
+    "compileOnSave": false
+}
