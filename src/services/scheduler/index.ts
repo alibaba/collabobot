@@ -1,4 +1,4 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import scheduler, { JobCallback, Job } from "node-schedule";
 
 export default class SchedulerService extends BaseComponent {

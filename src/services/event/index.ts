@@ -1,4 +1,4 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import { BaseEvent } from "./events";
 
 export interface EventHandler<T> {

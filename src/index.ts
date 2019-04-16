@@ -1,6 +1,7 @@
+require('module-alias/register');
 import { Probot, createProbot } from "probot";
-import { MyApplication, initApplication, loadApplication, applicationStarted } from "./myApplication";
-import { Config } from "./config";
+import { MyApplication, initApplication, loadApplication, applicationStarted } from "myApplication";
+import { Config } from "config";
 
 class Program {
     private probot: Probot;

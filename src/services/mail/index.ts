@@ -1,4 +1,4 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import MailServiceConfig from "./config";
 import * as Nodemailer from "nodemailer";
 import { Context } from "probot";

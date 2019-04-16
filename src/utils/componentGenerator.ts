@@ -55,7 +55,7 @@ import * as path from "path";
 
         let generateClassTemplate = (): string => {
             return `
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import ${className}${suffix}Config from "./config";
 
 export default class ${className}${suffix} extends BaseComponent {
@@ -67,7 +67,7 @@ export default class ${className}${suffix} extends BaseComponent {
 
         let generateConfigTemplate = (): string => {
             return `
-import { BaseComponentConfig } from "../../baseComponentConfig";
+import { BaseComponentConfig } from "baseComponentConfig";
 
 export default class ${className}${suffix}Config extends BaseComponentConfig {
     constructor() {

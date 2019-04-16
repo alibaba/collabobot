@@ -47,7 +47,7 @@ import * as os from "os";
         return str.charAt(0).toUpperCase() + str.slice(1);
     }
     let genImportClause = (name: string, dir: string, suffix: string) => {
-        return `import ${capitalize(name)}${suffix} from "./${dir}/${name}";`;
+        return `import ${capitalize(name)}${suffix} from "${dir}/${name}";`;
     }
     let importClauses = services.map(comp => genImportClause(comp.name, "services", "Service")).
         concat(components.map(comp => genImportClause(comp.name, "components", "Component"))).join(os.EOL);
@@ -77,8 +77,8 @@ import * as os from "os";
         concat(components.map(comp => genStartClause(comp.name, "Component"))).join(os.EOL);
 
     let fileContent = `import { Application } from "probot";
-import { Config } from "./config";
-import Utils from "./utils/utils";
+import { Config } from "config";
+import Utils from "utils/utils";
 ${importClauses}
 
 export class MyApplication extends Application {

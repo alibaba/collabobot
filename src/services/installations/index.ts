@@ -1,6 +1,6 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import { GitHubAPI } from "probot/lib/github";
-import { NewRepoInstalledEvent, RepoUninstalledEvent } from "../event/events";
+import { NewRepoInstalledEvent, RepoUninstalledEvent } from "services/event/events";
 import { Context } from "probot";
 
 type InstalledRepos = {

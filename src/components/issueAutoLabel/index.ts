@@ -1,8 +1,8 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import IssueAutoLabelComponentConfig from "./config";
 import { WebhookPayloadIssues } from "@octokit/webhooks";
 import { Context } from "probot";
-import LabelSetupComponentConfig from "../labelSetup/config";
+import LabelSetupComponentConfig from "components/labelSetup/config";
 
 export default class IssueAutoLabelComponent extends BaseComponent {
 

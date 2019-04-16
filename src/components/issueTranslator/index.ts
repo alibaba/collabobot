@@ -1,8 +1,8 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import IssueTranslatorComponentConfig from "./config";
 import { WebhookPayloadIssues } from "@octokit/webhooks";
 import { Context } from "probot";
-import { TranslateResult } from "../../services/translate";
+import { TranslateResult } from "services/translate";
 import * as os from "os";
 
 export default class IssueTranslatorComponent extends BaseComponent {

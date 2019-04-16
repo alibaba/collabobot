@@ -1,4 +1,4 @@
-import { BaseComponentConfig } from "../../baseComponentConfig";
+import { BaseComponentConfig } from "baseComponentConfig";
 
 type Label = {
     name: string,

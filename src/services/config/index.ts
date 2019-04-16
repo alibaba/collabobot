@@ -1,12 +1,12 @@
-import { BaseComponent } from "../../baseComponent";
-import { BaseComponentConfig } from "../../baseComponentConfig";
+import { BaseComponent } from "baseComponent";
+import { BaseComponentConfig } from "baseComponentConfig";
 import _ from "lodash";
 import * as path from "path";
 import * as fs from "fs";
 import requireFromString from "require-from-string";
 import { Context } from "probot";
-import { ConfigChangedEvent } from "../event/events";
-import { Locker } from "../../utils/utils";
+import { ConfigChangedEvent } from "services/event/events";
+import { Locker } from "utils/utils";
 
 export default class ConfigService extends BaseComponent {
 

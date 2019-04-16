@@ -1,5 +1,5 @@
 import { Logger } from "probot";
-import { MyApplication } from "./myApplication";
+import { MyApplication } from "myApplication";
 
 export abstract class BaseComponent {
     app: MyApplication;

@@ -1,9 +1,9 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import DataServiceConfig from "./config";
-import { GithubConnectionPool } from "../../utils/GitHubConnectionPool";
-import { RepoUninstalledEvent, NewRepoInstalledEvent, ConfigChangedEvent } from "../event/events";
+import { GithubConnectionPool } from "utils/GithubConnectionPool";
+import { RepoUninstalledEvent, NewRepoInstalledEvent, ConfigChangedEvent } from "services/event/events";
 import { Job } from "node-schedule";
-import { Locker } from "../../utils/utils";
+import { Locker } from "utils/utils";
 
 export default class DataService extends BaseComponent {
 

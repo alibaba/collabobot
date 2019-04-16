@@ -1,6 +1,6 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import WelcomeInstallComponentConfig from "./config";
-import { NewRepoInstalledEvent } from "../..//services/event/events";
+import { NewRepoInstalledEvent } from "services/event/events";
 
 export default class WelcomeInstallComponent extends BaseComponent {
     public async onLoad(): Promise<void> {

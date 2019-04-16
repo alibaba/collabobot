@@ -1,6 +1,6 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import WeeklyReportComponentConfig from "./config";
-import { NewRepoInstalledEvent, RepoUninstalledEvent, ConfigChangedEvent } from "../../services/event/events";
+import { NewRepoInstalledEvent, RepoUninstalledEvent, ConfigChangedEvent } from "services/event/events";
 import { Job } from "node-schedule";
 import { EOL } from "os";
 

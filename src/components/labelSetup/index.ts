@@ -1,6 +1,6 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import LabelSetupComponentConfig from "./config";
-import { ConfigChangedEvent, NewRepoInstalledEvent } from "../../services/event/events";
+import { ConfigChangedEvent, NewRepoInstalledEvent } from "services/event/events";
 
 export default class LabelSetupComponent extends BaseComponent {
     public async onLoad(): Promise<void> {

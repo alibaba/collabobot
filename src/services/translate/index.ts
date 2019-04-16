@@ -1,4 +1,4 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import TranslateServiceConfig from "./config";
 const googleTranslate = require("google-translate");
 

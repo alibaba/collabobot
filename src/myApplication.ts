@@ -1,20 +1,20 @@
 import { Application } from "probot";
-import { Config } from "./config";
-import Utils from "./utils/utils";
-import ConfigService from "./services/config";
-import DataService from "./services/data";
-import DingTalkNotifyService from "./services/dingTalkNotify";
-import EventService from "./services/event";
-import InstallationsService from "./services/installations";
-import MailService from "./services/mail";
-import SchedulerService from "./services/scheduler";
-import TranslateService from "./services/translate";
-import IssueAutoLabelComponent from "./components/issueAutoLabel";
-import IssueTranslatorComponent from "./components/issueTranslator";
-import LabelSetupComponent from "./components/labelSetup";
-import PrSizeLabelComponent from "./components/prSizeLabel";
-import WeeklyReportComponent from "./components/weeklyReport";
-import WelcomeInstallComponent from "./components/welcomeInstall";
+import { Config } from "config";
+import Utils from "utils/utils";
+import ConfigService from "services/config";
+import DataService from "services/data";
+import DingTalkNotifyService from "services/dingTalkNotify";
+import EventService from "services/event";
+import InstallationsService from "services/installations";
+import MailService from "services/mail";
+import SchedulerService from "services/scheduler";
+import TranslateService from "services/translate";
+import IssueAutoLabelComponent from "components/issueAutoLabel";
+import IssueTranslatorComponent from "components/issueTranslator";
+import LabelSetupComponent from "components/labelSetup";
+import PrSizeLabelComponent from "components/prSizeLabel";
+import WeeklyReportComponent from "components/weeklyReport";
+import WelcomeInstallComponent from "components/welcomeInstall";
 
 export class MyApplication extends Application {
     public config: Config;

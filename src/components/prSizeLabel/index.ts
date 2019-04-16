@@ -1,4 +1,4 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import PrSizeLabelComponentConfig from "./config";
 
 export default class PrSizeLabelComponent extends BaseComponent {

@@ -1,4 +1,4 @@
-import { BaseComponentConfig } from "../../baseComponentConfig";
+import { BaseComponentConfig } from "baseComponentConfig";
 
 export default class DataServiceConfig extends BaseComponentConfig {
     constructor() {

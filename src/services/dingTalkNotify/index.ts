@@ -1,4 +1,4 @@
-import { BaseComponent } from "../../baseComponent";
+import { BaseComponent } from "baseComponent";
 import DingTalkNotifyServiceConfig from "./config";
 const DingTalkRobot = require("dingtalk-robot-sender");
 
