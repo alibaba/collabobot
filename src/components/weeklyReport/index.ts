@@ -82,7 +82,8 @@ export default class WeeklyReportComponent extends BaseComponent {
             owner,
             repo,
             title,
-            body: weeklyReportStr
+            body: weeklyReportStr,
+            labels: ["weekly-report"]
         }).then(r => {
             this.logger.info(`Generate weekly report for ${owner}/${repo} done, issue number=${r.data.number}`);
         }).catch(e => {
