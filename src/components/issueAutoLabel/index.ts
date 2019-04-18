@@ -23,6 +23,7 @@ export default class IssueAutoLabelComponent extends BaseComponent {
         // check config for not label
         if (!config.enable) return;
         if (config.notProcess(issue.title, issue.body, issue.user.login)) return;
+        if (context.isBot) return;
 
         let labelConfig = await this.app.configService.getConfigByContext(context, LabelSetupComponentConfig);
         let title = issue.title.toLowerCase();
@@ -41,7 +42,7 @@ export default class IssueAutoLabelComponent extends BaseComponent {
         let github = await this.app.installationsService.getGithubClientByContext(context);
         let param = context.issue({ labels: attachLabels });
         await github.issues.addLabels(param).catch(this.logger.error);
-        this.logger.debug(`Auto label for issue #${issue.number} done,` +
+        this.logger.info(`Auto label for issue #${issue.number} done,` +
             ` lalels=${JSON.stringify(attachLabels)}`);
     }
 }
