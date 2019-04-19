@@ -1,5 +1,7 @@
 # Collabobot
 
+![Collabobot Banner](docs/static/banner.png)
+
 Collabobot is short for collaborate robot which is for GitHub open source project collaboration. This project is a [GitHub App](https://developer.github.com/v3/apps/) that you can easily install for your repos.
 
 Collabobot is built on [Probot](https://github.com/probot/probot) which is a great framework to build GitHub App and collabobot has its own advantages which will be introduced in this doc.
