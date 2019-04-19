@@ -18,7 +18,7 @@ export class Locker {
         await Utils.waitFor(() => !this.checkLocked(key));
         let ret = await func();
         this.releaseLock(key);
-        return <T>ret;
+        return ret;
     }
 
     public releaseLock(key: string): void {
