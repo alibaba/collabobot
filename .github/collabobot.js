@@ -50,7 +50,7 @@ module.exports = {
     },
     weeklyReportComponent: {
         enable: true,
-        generateTime: "0 12 * * 5"
+        generateTime: "0 15 * * 5"
     },
     prSizeLabelComponent: {
         enable: true
