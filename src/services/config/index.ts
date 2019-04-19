@@ -117,11 +117,11 @@ export default class ConfigService extends BaseComponent {
                 this.loadGlobalConfig(c);
                 this.loadRepoLocalConfig(owner, repo, c);
                 await this.loadRepoRemoteConfig(owner, repo, c);
-                this.configs.set(key, c);
                 this.logger.info(`Generate new config for ${key} done. config=`, c);
             }
             return c;
         });
+        this.configs.set(key, config);
 
         for (let [i, c] of config) {
             if (c instanceof constructor) {

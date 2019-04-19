@@ -21,6 +21,7 @@ export default class DataService extends BaseComponent {
         // gen jobs for new installed repo
         this.app.eventService.on(NewRepoInstalledEvent, p => {
             this.genJobForRepo(p.owner, p.repo);
+            this.updateData(p.owner, p.repo);
         });
 
         // remove job for uninstalled repo
@@ -44,23 +45,14 @@ export default class DataService extends BaseComponent {
 
         // update once on start
         repos.forEach(async r => {
-            let config = await this.app.configService.getConfigByName(r.owner, r.repo, DataServiceConfig);
-            let client = new GithubConnectionPool();
-            client.init({
-                tokens: config.dataFetch.tokens
-            });
-            this.updateData(r.owner, r.repo, client);
+            this.updateData(r.owner, r.repo);
         });
     }
 
     private async genJobForRepo(owner: string, repo: string): Promise<void> {
         let config = await this.app.configService.getConfigByName(owner, repo, DataServiceConfig);
-        let client = new GithubConnectionPool();
-        client.init({
-            tokens: config.dataFetch.tokens
-        });
         let job = this.app.schedulerService.register(`${config.jobName}-${owner}-${repo}`, config.updateTime, () => {
-            this.updateData.call(this, owner, repo, client);
+            this.updateData.call(this, owner, repo);
         });
         this.updateHandler.set(this.app.utils.genRepoFullName(owner, repo), job);
     }
@@ -74,7 +66,7 @@ export default class DataService extends BaseComponent {
         }
     }
 
-    private async updateData(owner: string, repo: string, client: GithubConnectionPool): Promise<void> {
+    private async updateData(owner: string, repo: string): Promise<void> {
         let repoKey = this.app.utils.genRepoFullName(owner, repo);
         let locked = this.repoLocker.checkLocked(repoKey);
         if (locked) {
@@ -83,7 +75,14 @@ export default class DataService extends BaseComponent {
         }
         await this.app.utils.waitFor(() => this.updatingRepoCount < this.concurrentUpdateCount);
         this.updatingRepoCount++;
-        this.logger.info("Start to update repo data for ", repoKey);
+        this.logger.info("Start to update repo data for", repoKey);
+
+        let config = await this.app.configService.getConfigByName(owner, repo, DataServiceConfig);
+        let client = new GithubConnectionPool();
+        client.init({
+            tokens: config.dataFetch.tokens
+        });
+
         let [repoInfo, stars, watches, forks, pullRequests, issues, commits] = await Promise.all([
             client.repo.info(repoKey),
             client.repo.stars(repoKey),
