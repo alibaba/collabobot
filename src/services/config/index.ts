@@ -145,10 +145,14 @@ export default class ConfigService extends BaseComponent {
     }
 
     public resetConfigByName(owner: string, repo: string) {
-        let key = this.genKey(owner, repo);
-        this.logger.info(`Config reset for ${key}`);
-        this.configs.delete(key);
-        this.app.eventService.trigger(ConfigChangedEvent, { owner, repo });
+        // TODO: no idea why can't get new config file right after the event
+        // give 5 seconds delay
+        setTimeout(() => {
+            let key = this.genKey(owner, repo);
+            this.logger.info(`Config reset for ${key}`);
+            this.configs.delete(key);
+            this.app.eventService.trigger(ConfigChangedEvent, { owner, repo });
+        }, 5000);
     }
 
     private genKey(owner: string, repo: string): string {

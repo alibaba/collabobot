@@ -29,6 +29,17 @@ export default class InstallationsService extends BaseComponent {
             this.logger.error(`Error `, e);
         }
 
+        // handle new repo install along with new installation
+        this.app.on("installation.created", async (context): Promise<void> => {
+            await Promise.all(context.payload.repositories.map(async (r: any) => {
+                this.logger.info(`Installed on repo ${r.full_name}`);
+                let { owner, repo } = this.app.utils.getOwnerAndRepoByFullName(r.full_name);
+                await this.addRepository(owner, repo, context.payload.installation.id);
+                this.app.eventService.trigger(NewRepoInstalledEvent, { owner, repo });
+            }));
+            this.printStatus();
+        });
+
         // handle new repo install event
         this.app.on("installation_repositories.added", async (context): Promise<void> => {
             await Promise.all(context.payload.repositories_added.map(async (r: any) => {
