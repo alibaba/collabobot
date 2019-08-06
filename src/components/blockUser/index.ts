@@ -18,6 +18,7 @@ export default class BlockUserComponent extends BaseComponent {
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === issue.user.login);
+        this.logger.info(`${issue.user.login},${JSON.stringify(config)}`);
         if (blockConfig && blockConfig.block.openIssue) {
             // the user has been blocked
             let github = await this.app.installationsService.getGithubClientByContext(context);
@@ -40,6 +41,7 @@ export default class BlockUserComponent extends BaseComponent {
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === comment.user.login);
+        this.logger.info(`${comment.user.login},${JSON.stringify(config)}`);
         if (blockConfig && blockConfig.block.issueComment) {
             // the user has been blocked
             let github = await this.app.installationsService.getGithubClientByContext(context);
@@ -61,6 +63,7 @@ export default class BlockUserComponent extends BaseComponent {
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === pr.user.login);
+        this.logger.info(`${pr.user.login},${JSON.stringify(config)}`);
         if (blockConfig && blockConfig.block.openPullRequest) {
             // the user has been blocked
             let github = await this.app.installationsService.getGithubClientByContext(context);
