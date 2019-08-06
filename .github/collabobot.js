@@ -62,7 +62,7 @@ module.exports = {
     blockUserComponent: {
         enable: true,
         blockUsers: [{
-            id: "Frankzhaopku",
+            id: "eternaltingting",
             block: {
                 openIssue: true,
                 issueComment: true,
