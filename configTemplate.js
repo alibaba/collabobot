@@ -96,5 +96,22 @@ module.exports = {
         to: "en",
         // when issue will not be translated, default value: () => false
         notProcess: (title, body, author) => body.includes("/notranslate")
+    },
+    blockUserComponent: {
+        // enable to block a GitHub user from the community, default value: false
+        enable: true,
+        blockUsers: [{
+            id: "some_one's_github_id";
+            block: {
+                openIssue: true;
+                issueComment: true;
+                openPullRequest: true;
+            };
+            reason: "Public harassment";
+        }];
+        // following template is used for issue or pr update
+        // issueCloseCommentTemplate: string;
+        // pullRequestCloseCommentTemplate: string;
+        // commentDeleteTemplate: string;
     }
 };
