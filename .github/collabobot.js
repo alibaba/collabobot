@@ -60,6 +60,7 @@ module.exports = {
         notProcess: () => false
     },
     blockUser: {
+        enable: true,
         blockUsers: [{
             id: "eternaltingting",
             block: {
@@ -68,6 +69,6 @@ module.exports = {
                 openPullRequest: true
             },
             reason: "Public harassment"
-        }];
+        }]
     }
 }
