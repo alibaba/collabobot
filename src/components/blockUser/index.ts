@@ -15,10 +15,10 @@ export default class BlockUserComponent extends BaseComponent {
     private async processIssueOpen(context: Context<WebhookPayloadIssues>): Promise<void> {
         let issue = context.payload.issue;
         let config = await this.app.configService.getConfigByContext(context, BlockUserComponentConfig);
+        this.logger.info(`${issue.user.login},${JSON.stringify(config)}`);
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === issue.user.login);
-        this.logger.info(`${issue.user.login},${JSON.stringify(config)}`);
         if (blockConfig && blockConfig.block.openIssue) {
             // the user has been blocked
             let github = await this.app.installationsService.getGithubClientByContext(context);
@@ -38,10 +38,10 @@ export default class BlockUserComponent extends BaseComponent {
     private async processIssueComment(context: Context<WebhookPayloadIssueComment>): Promise<void> {
         let comment = context.payload.comment;
         let config = await this.app.configService.getConfigByContext(context, BlockUserComponentConfig);
+        this.logger.info(`${comment.user.login},${JSON.stringify(config)}`);
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === comment.user.login);
-        this.logger.info(`${comment.user.login},${JSON.stringify(config)}`);
         if (blockConfig && blockConfig.block.issueComment) {
             // the user has been blocked
             let github = await this.app.installationsService.getGithubClientByContext(context);
@@ -60,10 +60,10 @@ export default class BlockUserComponent extends BaseComponent {
     private async processPullRequestOpen(context: Context<WebhookPayloadPullRequest>): Promise<void> {
         let pr = context.payload.pull_request;
         let config = await this.app.configService.getConfigByContext(context, BlockUserComponentConfig);
+        this.logger.info(`${pr.user.login},${JSON.stringify(config)}`);
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === pr.user.login);
-        this.logger.info(`${pr.user.login},${JSON.stringify(config)}`);
         if (blockConfig && blockConfig.block.openPullRequest) {
             // the user has been blocked
             let github = await this.app.installationsService.getGithubClientByContext(context);
