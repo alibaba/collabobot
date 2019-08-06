@@ -15,7 +15,6 @@ export default class BlockUserComponent extends BaseComponent {
     private async processIssueOpen(context: Context<WebhookPayloadIssues>): Promise<void> {
         let issue = context.payload.issue;
         let config = await this.app.configService.getConfigByContext(context, BlockUserComponentConfig);
-        this.logger.info(`${issue.user.login},${JSON.stringify(config)}`);
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === issue.user.login);
@@ -38,7 +37,6 @@ export default class BlockUserComponent extends BaseComponent {
     private async processIssueComment(context: Context<WebhookPayloadIssueComment>): Promise<void> {
         let comment = context.payload.comment;
         let config = await this.app.configService.getConfigByContext(context, BlockUserComponentConfig);
-        this.logger.info(`${comment.user.login},${JSON.stringify(config)}`);
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === comment.user.login);
@@ -60,7 +58,6 @@ export default class BlockUserComponent extends BaseComponent {
     private async processPullRequestOpen(context: Context<WebhookPayloadPullRequest>): Promise<void> {
         let pr = context.payload.pull_request;
         let config = await this.app.configService.getConfigByContext(context, BlockUserComponentConfig);
-        this.logger.info(`${pr.user.login},${JSON.stringify(config)}`);
         if (!config.enable) return;
 
         let blockConfig = config.blockUsers.find(u => u.id === pr.user.login);
