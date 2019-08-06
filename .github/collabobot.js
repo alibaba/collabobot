@@ -58,5 +58,16 @@ module.exports = {
     issueTranslatorComponent: {
         enable: true,
         notProcess: () => false
+    },
+    blockUser: {
+        blockUsers: [{
+            id: "eternaltingting",
+            block: {
+                openIssue: true,
+                issueComment: true,
+                openPullRequest: true
+            },
+            reason: "Public harassment"
+        }];
     }
 }
