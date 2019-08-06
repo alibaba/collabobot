@@ -59,7 +59,7 @@ module.exports = {
         enable: true,
         notProcess: () => false
     },
-    blockUser: {
+    blockUserComponent: {
         enable: true,
         blockUsers: [{
             id: "eternaltingting",
