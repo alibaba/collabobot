@@ -9,6 +9,7 @@ import InstallationsService from "services/installations";
 import MailService from "services/mail";
 import SchedulerService from "services/scheduler";
 import TranslateService from "services/translate";
+import BlockUserComponent from "components/blockUser";
 import IssueAutoLabelComponent from "components/issueAutoLabel";
 import IssueTranslatorComponent from "components/issueTranslator";
 import LabelSetupComponent from "components/labelSetup";
@@ -27,6 +28,7 @@ export class MyApplication extends Application {
     public mailService: MailService;
     public schedulerService: SchedulerService;
     public translateService: TranslateService;
+    public blockUserComponent: BlockUserComponent;
     public issueAutoLabelComponent: IssueAutoLabelComponent;
     public issueTranslatorComponent: IssueTranslatorComponent;
     public labelSetupComponent: LabelSetupComponent;
@@ -45,6 +47,7 @@ export function initApplication(app: MyApplication) {
     app.mailService = new MailService(app, "mailService");
     app.schedulerService = new SchedulerService(app, "schedulerService");
     app.translateService = new TranslateService(app, "translateService");
+    app.blockUserComponent = new BlockUserComponent(app, "blockUserComponent");
     app.issueAutoLabelComponent = new IssueAutoLabelComponent(app, "issueAutoLabelComponent");
     app.issueTranslatorComponent = new IssueTranslatorComponent(app, "issueTranslatorComponent");
     app.labelSetupComponent = new LabelSetupComponent(app, "labelSetupComponent");
@@ -62,6 +65,7 @@ export async function loadApplication(app: MyApplication) {
     await app.mailService.onLoad();
     await app.schedulerService.onLoad();
     await app.translateService.onLoad();
+    await app.blockUserComponent.onLoad();
     await app.issueAutoLabelComponent.onLoad();
     await app.issueTranslatorComponent.onLoad();
     await app.labelSetupComponent.onLoad();
@@ -79,6 +83,7 @@ export async function applicationStarted(app: MyApplication) {
     await app.mailService.onStarted();
     await app.schedulerService.onStarted();
     await app.translateService.onStarted();
+    await app.blockUserComponent.onStarted();
     await app.issueAutoLabelComponent.onStarted();
     await app.issueTranslatorComponent.onStarted();
     await app.labelSetupComponent.onStarted();
